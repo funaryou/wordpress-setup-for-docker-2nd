@@ -5,9 +5,6 @@ services:
       - ./wordpress:/var/www/html
     ports:
       - 8000:80
-    environment:
-      - PHP_UPLOAD_MAX_FILESIZE=64M
-      - PHP_POST_MAX_SIZE=64M
   db:
     image: mysql:8.3
     volumes:
