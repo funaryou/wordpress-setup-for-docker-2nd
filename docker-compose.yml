@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ./wordpress:/var/www/html
+    ports:
+      - 8000:80
+    environment:
+      - PHP_UPLOAD_MAX_FILESIZE=64M
+      - PHP_POST_MAX_SIZE=64M
+  db:
+    image: mysql:8.3
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: dev
+    ports:
+      - 3306:3306
